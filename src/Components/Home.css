@@ -1,0 +1,45 @@
+.home-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .side-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+    width: 20%;
+    height: 100%;
+  }
+  
+  .nav-item {
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0 2rem;
+  }
+  .home-container {
+    background-color: #333;
+  }  
