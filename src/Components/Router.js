@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Contact from './Contact';
 
-const Router = () => {
+const RouterJb = () => {
   return (
     <Router>
       <Routes>

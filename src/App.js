@@ -8,7 +8,7 @@ import Router from './Components/Router';
 function App() {
   return (
     <div>
-       <Router history={history}>
+       <Router>
       <Home />
     </Router>
       <Footer></Footer>
