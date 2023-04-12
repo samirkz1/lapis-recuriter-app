@@ -1,52 +1,37 @@
-import React from 'react';
-import { Box, Typography, TextField, Button } from '@mui/material';
-import { css } from '@emotion/react';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import './ContactStyle.css';
 
-const Contact = (props) => {
-  const handleSubmit = (e) => {
+
+function ContactUs () {
+  const form = useRef();
+
+  const sendEmail = (e) => {
     e.preventDefault();
-    console.log('Form submitted!');
+
+    emailjs.sendForm('service_gorp7pf', 'template_fwf8gjs', form.current, 'CizOs_UrNoL5cKZbn')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      alert("Email Send!")
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 3 }}>
-      <Typography variant="h4" sx={{ mb: 3 }}>
-        Contact Us
-      </Typography>
-      <form onSubmit={handleSubmit} css={css`width: 100%;`}>
-        <TextField
-          required
-          id="name"
-          label="Name"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-        />
-        <TextField
-          required
-          id="email"
-          label="Email"
-          type="email"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-        />
-        <TextField
-          required
-          id="message"
-          label="Message"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          multiline
-          rows={4}
-        />
-        <Button type="submit" variant="contained" sx={{ mt: 3 }}>
-          Send
-        </Button>
+    <div className='container'>
+      <h3>CONTACT US</h3>
+      <form ref={form} onSubmit={sendEmail}>
+        <label>Name</label>
+        <input type='text' name='user_name'/>
+        <label>Email</label>
+        <input type='email' name='user_email'/>
+        <label>Message</label>
+        <textarea name='message'/>
+        <input type='submit' name='submit' className='button' value='send'/>
       </form>
-    </Box>
+    </div>
   );
 };
 
-export default Contact;
+export default ContactUs;
